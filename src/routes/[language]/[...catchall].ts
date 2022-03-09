@@ -1,23 +1,24 @@
 import Storyblok from '@/storyblok/client';
+import { loaderHandler } from '@/storyblok/loaderHandler';
+
 export async function get({ params }) {
 	const language = params['language'] || 'nl-be';
 	const slug = params['catchall'] || 'index';
 
-	const page = await Storyblok.getStory(`${language}/${slug}`, {
-		version: 'draft'
-	});
-	const blocks = page.data.story.content.body;
+	try {
+		const page = await Storyblok.getStory(`${language}/${slug}`, {
+			version: 'draft'
+		});
 
-	return {
-		body: { page, blocks }
-	};
+		const blocks = page.data.story.content.body;
+
+		return {
+			body: { page, blocks, loadersData: await loaderHandler(blocks) }
+		};
+	} catch (error) {
+		return {
+			message: error.message,
+			status: error.response.status
+		};
+	}
 }
-
-export const post = (request) => {
-	console.log(request);
-	return {
-		body: {
-			message: 'Ok'
-		}
-	};
-};

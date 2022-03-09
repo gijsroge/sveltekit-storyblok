@@ -6,7 +6,7 @@ module.exports = {
 	plugins: [],
 	safelist: [
 		{
-			pattern: /(p|mb)-(2|6|10)/
+			pattern: /(p|mb|bg)-(2|4|6|8|10|black|blue-500)|max-w-(4|6|8)xl/
 		}
 	]
 };

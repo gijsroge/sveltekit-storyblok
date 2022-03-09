@@ -3,7 +3,8 @@
 	export function load({ error, status }) {
 		return {
 			props: {
-				title: `${status}: ${error.message}`
+				title: status,
+				message: error.message
 			}
 		};
 	}
@@ -11,6 +12,14 @@
 
 <script>
 	export let title;
+	export let message;
 </script>
 
-<h1>{title}</h1>
+<svlete:head>
+	<title>{title}</title>
+</svlete:head>
+
+<div class="max-w-screen-2xl mx-auto w-full">
+	<h1 class="text-4xl">{title}</h1>
+	<p>{message}</p>
+</div>

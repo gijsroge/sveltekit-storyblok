@@ -19,13 +19,14 @@ export const getComponents = async (blocks) => {
 	const components = {};
 
 	listOfBlocks.forEach(async (block) => {
-		components[block] = import(`./components/${block}.svelte`);
+		const resolvedComponent = import(`./components/${block}.svelte`).catch(() => null);
+		components[block] = resolvedComponent;
 	});
 
 	const comps = await Promise.all(Object.values(components));
 
 	listOfBlocks.forEach((block, index) => {
-		components[block] = comps[index];
+		if (comps[index]) components[block] = comps[index];
 	});
 
 	return components;
