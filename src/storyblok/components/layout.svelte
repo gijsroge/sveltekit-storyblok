@@ -1,5 +1,5 @@
 <script>
-	import { bg, padding, margin, color, spacing, isNotLastElement } from '@/storyblok/layout';
+	import { bg, padding, margin, color, spacing, isLastElement } from '@/storyblok/layout';
 	let className;
 	export { className as class };
 	export let components;
@@ -12,7 +12,7 @@
 	{#each block.body as block}
 		<svelte:component
 			this={components[block.component].default}
-			class={isNotLastElement(block, blocks) ? spacing(block) : ''}
+			class={isLastElement(block, blocks) ? 'mb-0' : 'mb-6'}
 			{components}
 			{block}
 			{loadersData}

@@ -26,6 +26,6 @@ export function margin(block) {
 	return '';
 }
 
-export function isNotLastElement(block, blocks) {
-	return blocks.indexOf(block) !== blocks.length - 1;
+export function isLastElement(block, blocks) {
+	return blocks.indexOf(block) === blocks.length - 1;
 }

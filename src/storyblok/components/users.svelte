@@ -16,8 +16,10 @@
 
 <div class={className}>
 	<h2 class="text-2xl">Users</h2>
-
-	{#each loadersData[block._uid] as user (user.id)}
-		<h3>{user.name}</h3>
-	{/each}
+	<p class="mb-5">Deze lijst is externe dynamische data</p>
+	<ul class="list-disc pl-4">
+		{#each loadersData[block._uid] as user (user.id)}
+			<li>{user.name}</li>
+		{/each}
+	</ul>
 </div>
