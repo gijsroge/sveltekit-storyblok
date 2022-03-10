@@ -16,8 +16,8 @@ export function color(block) {
 	return '';
 }
 
-export function padding(block) {
-	if (block.padding) return `p-${block.padding}`;
+export function padding(block, padding = 'p') {
+	if (block.padding) return `${padding}-${block.padding}`;
 	return '';
 }
 

@@ -1,8 +1,8 @@
 <script context="module">
-	export async function load() {
+	export async function load({ session }) {
 		return {
 			status: 302,
-			redirect: '/nl-be'
+			redirect: `/${session.language}`
 		};
 	}
 </script>

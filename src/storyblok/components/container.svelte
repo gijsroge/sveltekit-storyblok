@@ -6,10 +6,11 @@
 	export let components;
 	export let block;
 	export let loadersData;
+	export let isInLayout;
 	const blocks = block.body;
 
 	function maxWidth() {
-		let cssClass = 'mx-auto w-full';
+		let cssClass = `wrapper`;
 		if (block.width === 'default') {
 			cssClass += ` max-w-screen-2xl`;
 		}
@@ -32,6 +33,7 @@
 			{components}
 			{block}
 			{loadersData}
+			isInContainer={true}
 		/>
 	{/each}
 </div>

@@ -1,8 +1,15 @@
-<script>
-	import '@/assets/css/app.css';
+<script context="module">
+	export async function load({ request }) {
+		return {};
+	}
 </script>
 
-<header class="max-w-screen-2xl mx-auto w-full py-8 flex justify-between">
+<script>
+	import '@/assets/css/app.css';
+	import Footer from '@/components/footer.svelte';
+</script>
+
+<header class="wrapper w-full py-8 flex justify-between">
 	<a sveltekit:prefetch href="/nl-be">Home</a>
 
 	<nav>
@@ -12,4 +19,4 @@
 	</nav>
 </header>
 <slot />
-<footer class="bg-black p-4 text-white mt-auto">footer</footer>
+<footer class="bg-black p-4 text-white mt-auto"><Footer /></footer>
