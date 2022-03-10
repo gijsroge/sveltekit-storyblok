@@ -1,4 +1,6 @@
 <script>
+	let className;
+	export { className as class };
 	export let action;
 	export let method = 'GET';
 	if (!action) console.warn('please provide an action');
@@ -27,7 +29,14 @@
 	};
 </script>
 
-<form {action} novalidate {method} bind:this={form} on:submit|preventDefault={submitForm}>
+<form
+	{action}
+	novalidate
+	{method}
+	bind:this={form}
+	on:submit|preventDefault={submitForm}
+	class={className}
+>
 	{#if feedback?.message && !hasErrors}
 		<div class="bg-green-500">{feedback.message}</div>
 	{/if}
