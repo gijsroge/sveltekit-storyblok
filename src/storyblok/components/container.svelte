@@ -1,5 +1,5 @@
 <script>
-	import { spacing, isLastElement } from '@/storyblok/layout';
+	import { isLastElement } from '@/storyblok/layout';
 	import { setContext, getContext } from 'svelte';
 
 	let className;
