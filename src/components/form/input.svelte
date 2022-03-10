@@ -5,9 +5,12 @@
 	export let type = 'text';
 	export let feedback;
 
+	// Extract error message from the response
 	$: fieldError = feedback?.inner?.find((error) => {
 		return error.path === name;
 	});
+
+	// Computed boolean that determines if the field has an error
 	$: hasError = !!fieldError;
 </script>
 

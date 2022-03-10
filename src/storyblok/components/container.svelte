@@ -1,13 +1,17 @@
 <script>
 	import { spacing, isLastElement } from '@/storyblok/layout';
+	import { setContext, getContext } from 'svelte';
 
 	let className;
 	export { className as class };
-	export let components;
+
 	export let block;
-	export let loadersData;
-	export let isInLayout;
 	const blocks = block.body;
+
+	const components = getContext('components');
+
+	// store container context to use in other nested blocks
+	setContext('isInContainer', true);
 
 	function maxWidth() {
 		let cssClass = `wrapper`;
@@ -30,10 +34,7 @@
 		<svelte:component
 			this={components[block.component].default}
 			class={isLastElement(block, blocks) ? 'mb-0' : 'mb-6'}
-			{components}
 			{block}
-			{loadersData}
-			isInContainer={true}
 		/>
 	{/each}
 </div>

@@ -13,10 +13,13 @@
 
 <script>
 	import { spacing } from '@/storyblok/layout';
+	import { setContext } from 'svelte';
 	export let page;
 	export let blocks;
 	export let components;
 	export let loadersData;
+	setContext('components', components);
+	setContext('loadersData', loadersData);
 </script>
 
 <svelte:head>
@@ -27,8 +30,6 @@
 	<svelte:component
 		this={components[block.component].default}
 		class={spacing(block)}
-		{components}
 		{block}
-		{loadersData}
 	/>
 {/each}

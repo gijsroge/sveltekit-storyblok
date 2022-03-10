@@ -8,10 +8,12 @@
 </script>
 
 <script>
+	import { getContext } from 'svelte';
 	let className;
 	export { className as class };
-	export let loadersData;
 	export let block;
+
+	const loadersData = getContext('loadersData');
 </script>
 
 <div class={className}>

@@ -1,12 +1,14 @@
 <script>
 	import { bg, padding, margin, color, spacing, isLastElement } from '@/storyblok/layout';
+	import { getContext } from 'svelte';
 	let className;
 	export { className as class };
-	export let components;
+
 	export let block;
-	export let loadersData;
-	export let isInContainer = false;
 	const blocks = block.body;
+
+	const components = getContext('components');
+	const isInContainer = getContext('isInContainer') || false;
 </script>
 
 <div
@@ -18,9 +20,7 @@
 		<svelte:component
 			this={components[block.component].default}
 			class={isLastElement(block, blocks) ? 'mb-0' : 'mb-6'}
-			{components}
 			{block}
-			{loadersData}
 		/>
 	{/each}
 </div>
