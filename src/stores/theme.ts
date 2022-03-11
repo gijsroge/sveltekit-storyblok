@@ -1,7 +1,5 @@
 import { browser } from '$app/env';
 import { session } from '$app/stores';
-import type { Theme } from 'src/types';
-import type { Writable } from 'svelte/store';
 import { derived } from 'svelte/store';
 
 export const theme = derived(session, ($session, set) => {
@@ -12,8 +10,7 @@ export const theme = derived(session, ($session, set) => {
 	}
 });
 
-export const setTheme = (theme: Theme) => {
-	console.log(theme);
+export const setTheme = (theme) => {
 	session.update(($session) => ({ ...$session, theme }));
 	fetch('/api/theme', { method: 'PUT', body: theme });
 };

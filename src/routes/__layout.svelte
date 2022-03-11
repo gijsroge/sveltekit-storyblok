@@ -6,9 +6,9 @@
 
 <script>
 	import '@/assets/css/app.css';
-	import Footer from '@/components/footer.svelte';
+	import Footer from '$components/footer.svelte';
 	import ThemeSwitch from '@/components/themeSwitch.svelte';
-	import { theme } from '@/stores/theme';
+	import { theme } from '$stores/theme';
 </script>
 
 <svelte:head>
