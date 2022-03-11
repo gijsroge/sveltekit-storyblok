@@ -1,9 +1,18 @@
 <script context="module">
 	export async function load() {
-		return fetch('https://jsonplaceholder.typicode.com/users')
-			.then((res) => res.json())
-			.then((res) => res)
-			.catch((e) => console.error(e));
+		try {
+			const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
+
+			if (response.ok) {
+				const users = await response.json();
+				return users.sort(() => 0.5 - Math.random());
+			}
+
+			throw response;
+		} catch (error) {
+			console.error(error);
+			return {};
+		}
 	}
 </script>
 
@@ -14,14 +23,22 @@
 	export let block;
 
 	const loadersData = getContext('loadersData');
+
+	$: data = loadersData[block._uid];
+
+	const shuffle = async () => {
+		data = await load();
+	};
 </script>
 
 <div class={className}>
 	<h2 class="text-2xl">Users</h2>
 	<p class="mb-5">Deze lijst is externe dynamische data</p>
 	<ul class="list-disc pl-4">
-		{#each loadersData[block._uid] as user (user.id)}
+		{#each data as user (user.id)}
 			<li>{user.name}</li>
 		{/each}
 	</ul>
+
+	<button on:click={shuffle}>shuffle</button>
 </div>

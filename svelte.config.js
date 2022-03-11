@@ -9,6 +9,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		inlineStyleThreshold: 100024,
 		adapter: adapter(),
 		vite: {
 			resolve: {

@@ -1,6 +1,7 @@
 <script context="module">
 	/** @type {import('@sveltejs/kit').ErrorLoad} */
 	export function load({ error, status }) {
+		console.log(error)
 		return {
 			props: {
 				title: status,
