@@ -33,6 +33,7 @@
 	"type": "module",
 	"dependencies": {
 		"axios": "^0.26.0",
+		"cookie": "^0.4.2",
 		"lightcookie": "^1.0.25",
 		"storyblok-js-client": "^4.2.1",
 		"yup": "^0.32.11"

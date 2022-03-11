@@ -1,4 +1,6 @@
 import { handleLanguage } from '@/libs/language';
+import { getThemeFromRequest } from '@/libs/theme';
+
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
@@ -15,6 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 export async function getSession(event) {
 	return {
+		theme: getThemeFromRequest(event.request),
 		language: handleLanguage(event)
 	};
 }

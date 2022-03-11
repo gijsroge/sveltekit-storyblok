@@ -3,7 +3,6 @@
 	export { className as class };
 	export let action;
 	export let method = 'GET';
-	if (!action) console.warn('please provide an action');
 
 	let form;
 	let feedback = null;
