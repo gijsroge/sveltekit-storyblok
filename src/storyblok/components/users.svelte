@@ -40,5 +40,5 @@
 		{/each}
 	</ul>
 
-	<button class="bg-black text-white p-2 mt-4" on:click={shuffle}>shuffle</button>
+	<button class="bg-black dark:bg-gray-800 text-white p-2 mt-4" on:click={shuffle}>shuffle</button>
 </div>

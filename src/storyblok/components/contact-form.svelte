@@ -7,8 +7,11 @@
 </script>
 
 <Form action="/api/contact" method="POST" let:feedback class={className}>
-	<Input type="text" name="name" {feedback} />
-	<Input type="email" name="email" {feedback} />
+	<legend>Contact</legend>
+	<fieldset>
+		<Input type="text" name="name" {feedback} />
+		<Input type="email" name="email" {feedback} />
+	</fieldset>
 
-	<button>submit</button>
+	<button class="bg-black text-white p-2 mt-4">submit</button>
 </Form>
